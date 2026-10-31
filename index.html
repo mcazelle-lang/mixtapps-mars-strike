@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#1a0a0a" />
+  <title>Mars Strike</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles-mars.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+</head>
+<body class="mars">
+  <a id="btn-back" class="btn-back" href="../fusee/" aria-label="Retour au menu principal">
+    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M14 6 8 12l6 6" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+
+  <button id="btn-mute" type="button" class="btn-mute" aria-label="Couper le son">
+    <span class="icon icon-sound" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="32" height="32"><path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z" fill="currentColor"/></svg>
+    </span>
+    <span class="icon icon-mute" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="32" height="32"><path d="M3 10v4h4l5 4V6L7 10H3zm13 2 3-3-1.5-1.5L14 10.5 11.5 8 10 9.5 12.5 12 10 14.5 11.5 16 14 13.5 16.5 16 18 14.5 15.5 12 18 9.5 16.5 8 14 10.5 11.5 8 10 9.5 12.5 12z" fill="currentColor"/></svg>
+    </span>
+  </button>
+
+  <div id="playfield" class="playfield-mars">
+    <canvas id="game" aria-label="Mars Strike"></canvas>
+
+    <section id="screen-home" class="screen">
+      <h1 class="title title-mars">MARS STRIKE</h1>
+      <p class="subtitle-mars">DE LA LUNE À MARS</p>
+      <button id="btn-play" type="button" class="btn-big btn-mars">
+        <span class="btn-label">JOUER</span>
+      </button>
+      <div class="controls-help">
+        <p><span class="key">←→</span> ou souris : déplacer</p>
+        <p><span class="key">ESPACE</span> : tirer</p>
+        <p>Récupère les power-ups pour changer d'arme</p>
+      </div>
+    </section>
+
+    <section id="screen-game" class="screen hidden">
+      <div id="hud-top" class="hud-mars-top">
+        <div class="hud-left">
+          <div id="hud-shields" class="hud-shields-mars" aria-label="Boucliers"></div>
+          <div id="hud-score" class="hud-score-mars">SCORE 0</div>
+        </div>
+        <div class="hud-right">
+          <div id="hud-wave" class="hud-wave-mars">WAVE 1/5</div>
+          <div id="hud-weapon" class="hud-weapon-mars">MITRAILLETTE</div>
+        </div>
+      </div>
+      <div id="wave-banner" class="wave-banner hidden"><span id="wave-banner-text">WAVE 1</span></div>
+      <div id="progress-mars" class="progress-mars" aria-label="Progression vers Mars">
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+          <div class="progress-icon icon-moon">🌙</div>
+          <div class="progress-icon icon-mars">♂</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-game-over" class="screen hidden">
+      <h2 class="title-mars game-over-title">GAME OVER</h2>
+      <div class="end-stat">
+        <span class="end-stat-label">SCORE FINAL</span>
+        <span id="game-over-score" class="end-stat-value">0</span>
+      </div>
+      <div class="end-stat">
+        <span class="end-stat-label">VAGUE ATTEINTE</span>
+        <span id="game-over-wave" class="end-stat-value">1</span>
+      </div>
+      <button id="btn-replay" type="button" class="btn-big btn-mars">
+        <span class="btn-label">REJOUER</span>
+      </button>
+    </section>
+
+    <section id="screen-victory" class="screen hidden">
+      <h2 class="title-mars victory-title">MARS !</h2>
+      <div class="mars-art" aria-hidden="true">
+        <svg viewBox="0 0 200 200" width="220" height="220">
+          <circle cx="100" cy="100" r="60" fill="#c44a1a"/>
+          <circle cx="100" cy="100" r="60" fill="none" stroke="#7a2a08" stroke-width="3"/>
+          <circle cx="80" cy="78" r="9" fill="#962f10"/>
+          <circle cx="125" cy="92" r="13" fill="#962f10"/>
+          <circle cx="92" cy="125" r="7" fill="#962f10"/>
+          <circle cx="130" cy="135" r="10" fill="#962f10"/>
+          <circle cx="65" cy="110" r="5" fill="#962f10"/>
+          <circle cx="115" cy="68" r="4" fill="#962f10"/>
+        </svg>
+      </div>
+      <div class="end-stat">
+        <span class="end-stat-label">SCORE FINAL</span>
+        <span id="victory-score" class="end-stat-value">0</span>
+      </div>
+      <button id="btn-replay-victory" type="button" class="btn-big btn-mars">
+        <span class="btn-label">REJOUER</span>
+      </button>
+    </section>
+  </div>
+
+  <script type="module" src="./src/mars/main.js"></script>
+  <script src="https://appmixtape.web.app/remix.js" data-app="4BEHPBGs0PMYYsPObLUby6iusZf1/1cNHXuwQQw7Eue1ayF5V" defer></script>
+</body>
+</html>

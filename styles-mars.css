@@ -1,0 +1,226 @@
+body.mars {
+  background: #0a0410;
+  color: #ffd24a;
+  font-family: "Courier New", "Lucida Console", monospace;
+  letter-spacing: 0.05em;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.playfield-mars {
+  background: #000;
+  box-shadow: 0 0 0 2px #5a1010, 0 0 60px rgba(180, 30, 30, 0.4);
+}
+
+.playfield-mars #game {
+  background: #1a0816;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 100%;
+  height: 100%;
+}
+
+.title-mars {
+  margin: 0;
+  font-size: clamp(40px, 9vw, 84px);
+  font-weight: 900;
+  font-family: "Courier New", monospace;
+  color: #ffd24a;
+  text-shadow:
+    4px 0 #c43030,
+    -4px 0 #c43030,
+    0 4px 0 rgba(0,0,0,0.5);
+  letter-spacing: 0.08em;
+}
+
+.subtitle-mars {
+  margin: 0;
+  font-size: clamp(14px, 3vw, 22px);
+  color: #ff8a3a;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.btn-mars {
+  background: #ffd24a;
+  border: 4px solid #c43030;
+  border-radius: 0;
+  box-shadow: 0 6px 0 #5a1010, 6px 6px 0 rgba(0,0,0,0.4);
+  color: #1a0410;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.1em;
+}
+
+.btn-mars:active {
+  box-shadow: 0 2px 0 #5a1010, 2px 2px 0 rgba(0,0,0,0.4);
+}
+
+.controls-help {
+  color: #ffe2a8;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.controls-help .key {
+  display: inline-block;
+  background: #ffd24a;
+  color: #1a0410;
+  padding: 2px 8px;
+  border: 2px solid #c43030;
+  font-weight: 700;
+  margin: 0 2px;
+}
+
+.btn-back {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: 56px;
+  height: 56px;
+  border: 3px solid #ffd24a;
+  border-radius: 0;
+  background: rgba(20, 5, 5, 0.7);
+  color: #ffd24a;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+body.mars .btn-mute {
+  border-color: #ffd24a;
+  color: #ffd24a;
+  background: rgba(20, 5, 5, 0.7);
+  border-radius: 0;
+}
+
+.hud-mars-top {
+  position: absolute;
+  inset: 8px 8px auto 8px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: auto;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-shadow: 1px 1px 0 #000, 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+.hud-mars-top .hud-left,
+.hud-mars-top .hud-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hud-mars-top .hud-right { align-items: flex-end; text-align: right; }
+
+.hud-shields-mars {
+  display: flex;
+  gap: 4px;
+}
+
+.pixel-heart {
+  width: 14px;
+  height: 14px;
+  background: #ff3a3a;
+  clip-path: polygon(20% 0, 80% 0, 100% 30%, 100% 50%, 50% 100%, 0 50%, 0 30%);
+  box-shadow: inset 0 0 0 2px #5a1010;
+}
+
+.pixel-heart.lost {
+  background: #4a1010;
+  opacity: 0.4;
+}
+
+.hud-score-mars {
+  color: #ffd24a;
+  font-weight: 700;
+}
+
+.hud-wave-mars {
+  color: #ff8a3a;
+  font-weight: 700;
+}
+
+.hud-weapon-mars {
+  color: #7df0ff;
+  font-weight: 700;
+}
+
+.wave-banner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.wave-banner.hidden { display: none; }
+
+.wave-banner span {
+  font-size: clamp(28px, 7vw, 56px);
+  font-weight: 900;
+  color: #ffd24a;
+  letter-spacing: 0.2em;
+  text-shadow: 4px 0 #c43030, -4px 0 #c43030, 0 4px 0 rgba(0,0,0,0.6);
+  font-family: "Courier New", monospace;
+  animation: wave-banner-anim 1.7s ease-out;
+}
+
+@keyframes wave-banner-anim {
+  0%   { opacity: 0; transform: scale(0.5); }
+  20%  { opacity: 1; transform: scale(1.1); }
+  80%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+.progress-mars {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  pointer-events: none;
+}
+
+.progress-track {
+  position: relative;
+  height: 14px;
+  background: rgba(20, 5, 5, 0.7);
+  border: 2px solid #ffd24a;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff3a3a, #ffd24a);
+  transition: width 300ms ease;
+}
+
+.progress-icon {
+  position: absolute;
+  top: -10px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.icon-moon { left: -2px; }
+.icon-mars { right: -2px; color: #ff5b5b; }
+
+.game-over-title {
+  color: #ff3a3a;
+  text-shadow: 4px 0 #5a1010, -4px 0 #5a1010, 0 4px 0 rgba(0,0,0,0.6);
+}
+
+.victory-title {
+  color: #ffd24a;
+}
+
+.mars-art {
+  filter: drop-shadow(0 8px 16px rgba(180, 30, 30, 0.4));
+}
